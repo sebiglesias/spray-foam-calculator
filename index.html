@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spray Foam Insulation Calculator — Board Feet, R-Value & Kit Yields</title>
+  <meta name="description" content="Calculate total board feet, R-value, and Froth-Pak / Touch 'n Foam 200 & 600 kit yields for closed-cell and open-cell spray foam insulation projects.">
+  <link rel="canonical" href="https://sebiglesias.com.ar/spray-foam-calculator/">
+  <meta name="theme-color" content="#f59e0b">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Spray Foam Insulation Calculator — Board Feet, R-Value & Kit Yields">
+  <meta property="og:description" content="Calculate board feet and Froth-Pak 200 & 600 kit quantities for closed-cell and open-cell spray foam insulation.">
+  <meta property="og:url" content="https://sebiglesias.com.ar/spray-foam-calculator/">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BNDBQP0W7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BNDBQP0W7');
+  </script>
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-3381238987477190">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381238987477190" crossorigin="anonymous"></script>
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Spray Foam Insulation Calculator",
+      "url": "https://sebiglesias.com.ar/spray-foam-calculator/",
+      "applicationCategory": "ConstructionApplication",
+      "operatingSystem": "Any",
+      "description": "Calculate board feet and Froth-Pak 200/600 kit yields for closed-cell and open-cell spray foam insulation.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a board foot of spray foam insulation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A board foot is a specialized volume measurement equal to one square foot of surface area insulated to a thickness of one inch (12 inches × 12 inches × 1 inch = 144 cubic inches). For example, 500 square feet sprayed at 2 inches thick requires 1,000 board feet of foam."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between closed-cell and open-cell spray foam?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Closed-cell spray foam has a density of roughly 2.0 lbs/cu ft with an R-value of R-6.5 to R-7.0 per inch. At 2 inches thick, it forms a complete vapor barrier and adds structural racking strength to walls. Open-cell foam has a density of 0.5 lbs/cu ft with an R-value of R-3.8 per inch, expands aggressively to fill voids, and is primarily used for interior sound dampening rather than exterior moisture barriers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many board feet does a Froth-Pak 600 kit cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Froth-Pak 600 kit provides up to 600 board feet of cured foam under ideal ambient temperatures (75°F to 85°F). At 1 inch thickness, it covers 600 square feet; at 2 inches thickness, it covers 300 square feet. Cold surface temperatures can reduce yield by 15% to 25%."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">🏗️ Building Science & Insulation Standards</div>
+      <h1>Spray Foam Insulation Calculator</h1>
+      <p class="subtitle">Calculate board feet, target R-value, and exact kit quantities for closed-cell and open-cell DIY insulation projects.</p>
+
+      <div class="presets-bar">
+        <button class="preset-btn" data-preset="van">Sprinter / Camper Van</button>
+        <button class="preset-btn active" data-preset="garage">2-Car Garage Ceiling</button>
+        <button class="preset-btn" data-preset="rim_joists">Basement Rim Joists</button>
+        <button class="preset-btn" data-preset="pole_barn">Pole Barn / Shop Roof</button>
+      </div>
+    </header>
+
+    <!-- Top AdSense Banner -->
+    <div style="text-align:center; margin: 16px 0;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3381238987477190"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="calc-grid">
+      <!-- Inputs Card -->
+      <div class="card">
+        <h2>📐 Project Dimensions</h2>
+
+        <div class="form-group">
+          <label for="areaSqFt">Total Surface Area to Spray</label>
+          <div class="input-wrap">
+            <input type="number" id="areaSqFt" value="450" min="10" max="20000" step="25">
+            <span class="input-suffix">sq ft</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="thicknessInches">Target Foam Thickness</label>
+          <div class="input-wrap">
+            <input type="number" id="thicknessInches" value="2.0" min="0.5" max="6.0" step="0.5">
+            <span class="input-suffix">inches</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="foamType">Spray Foam Density & Chemistry</label>
+          <select id="foamType">
+            <option value="closed" selected>Closed-Cell 2.0 lb (R-7.0 / in — Vapor Barrier)</option>
+            <option value="open">Open-Cell 0.5 lb (R-3.8 / in — Sound Dampening)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="wasteBuffer">Overspray & Waste Safety Margin</label>
+          <select id="wasteBuffer">
+            <option value="10" selected>10% Buffer (Standard flat walls/ceilings)</option>
+            <option value="15">15% Buffer (Deep joists, irregular framing, metal ribs)</option>
+            <option value="5">5% Buffer (Experienced professional applicator)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Results Card -->
+      <div class="card">
+        <h2>📦 Foam Requirements</h2>
+
+        <div class="result-hero">
+          <div class="result-label">Total Board Feet Needed</div>
+          <div class="result-number" id="boardFeetResult">990</div>
+          <div class="result-label" style="color:#fde68a;" id="rValueResult">R-14 (Closed-Cell)</div>
+        </div>
+
+        <div class="result-stat-grid">
+          <div class="stat-item">
+            <div class="stat-desc">Froth-Pak 600 Kits</div>
+            <div class="stat-val" style="color:#f59e0b;" id="kits600Result">2 Kits</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-desc">Or Froth-Pak 200 Kits</div>
+            <div class="stat-val" id="kits200Result">5 Kits</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-desc">Est. DIY Material Cost</div>
+            <div class="stat-val" id="costEstResult">$1,139 (vs $2,079 Pro)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-desc">Vapor Barrier Rating</div>
+            <div class="stat-val" style="color:#22c55e;" id="vaporResult">Yes (Class II Barrier)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amazon Supplies Box (Affiliate Tag sebiglesias-20) -->
+    <div class="supplies-card">
+      <h3>🛡️ Commercial Spray Foam Kits & Safety PPE</h3>
+      <div class="supplies-grid">
+        <div class="supply-item">
+          <div>
+            <div class="supply-title">Froth-Pak 600 Foam Kit</div>
+            <div class="supply-desc">Two-component polyurethane closed-cell insulation kit yielding up to 600 board feet.</div>
+          </div>
+          <a href="https://www.amazon.com/s?k=froth+pak+600+spray+foam+kit&tag=sebiglesias-20" target="_blank" rel="nofollow noopener" class="btn-amazon">Check on Amazon →</a>
+        </div>
+        <div class="supply-item">
+          <div>
+            <div class="supply-title">3M 6800 Full Face Respirator</div>
+            <div class="supply-desc">NIOSH-approved full face mask with organic vapor / P100 particulate filter cartridges.</div>
+          </div>
+          <a href="https://www.amazon.com/s?k=3m+6800+full+face+respirator+organic+vapor&tag=sebiglesias-20" target="_blank" rel="nofollow noopener" class="btn-amazon">View on Amazon →</a>
+        </div>
+        <div class="supply-item">
+          <div>
+            <div class="supply-title">DuPont Tyvek Hooded Coveralls</div>
+            <div class="supply-desc">Chemical resistant disposable painter suit with hood and elastic cuffs.</div>
+          </div>
+          <a href="https://www.amazon.com/s?k=dupont+tyvek+coveralls+hooded&tag=sebiglesias-20" target="_blank" rel="nofollow noopener" class="btn-amazon">View on Amazon →</a>
+        </div>
+        <div class="supply-item">
+          <div>
+            <div class="supply-title">FLIR Thermal Imaging Camera</div>
+            <div class="supply-desc">Handheld infrared thermal camera to detect air leaks, cold bridges, and insulation voids.</div>
+          </div>
+          <a href="https://www.amazon.com/s?k=flir+thermal+imaging+camera+handheld&tag=sebiglesias-20" target="_blank" rel="nofollow noopener" class="btn-amazon">View on Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational Guide Section -->
+    <section class="guide-section">
+      <h2>Understanding Board Feet & Spray Foam Physics</h2>
+      <p>A <strong>board foot</strong> is the standard industry unit of measure for spray foam insulation volume. One board foot represents a volume of 1 square foot covered at a thickness of 1 inch (12" × 12" × 1" = 144 cubic inches).</p>
+      
+      <p><strong>Closed-Cell vs. Open-Cell:</strong> For outdoor structures, metal buildings, vans, and basements, <strong>closed-cell foam (2.0 lb/cu ft)</strong> is the industry standard because its closed cellular structure is impervious to liquid water and acts as an official Class II vapor retarder at 2 inches thickness (perm rating < 1.0). Open-cell foam (0.5 lb/cu ft) expands aggressively at lower cost, but absorbs water and must never be applied directly against exterior metal siding where condensation forms.</p>
+
+      <p><strong>Temperature Sensitivity:</strong> Spray foam chemical tanks MUST be warm (75°F to 85°F) for proper chemical expansion. Spraying with cold tanks causes poor yield, gummy unreacted chemicals, and off-ratio dispensing.</p>
+    </section>
+
+    <!-- FAQ Section for SEO -->
+    <section class="faq-section">
+      <h2 style="font-size:1.4rem; color:#ffffff; margin-bottom:16px;">Frequently Asked Questions (FAQ)</h2>
+      <div class="faq-item">
+        <div class="faq-q">How many board feet of spray foam do I need for a 12x24 garage?</div>
+        <div class="faq-a">A 12×24 garage with 9-foot walls has roughly 650 sq ft of wall area and 290 sq ft of ceiling area (total ~940 sq ft). Sprayed at 2 inches of closed-cell foam, this requires 1,880 board feet (plus 10% waste = ~2,060 board feet), which equals four Froth-Pak 600 kits.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Does spray foam insulation prevent condensation in metal pole barns?</div>
+        <div class="faq-a">Yes. Condensation in metal buildings occurs when warm humid interior air contacts cold uninsulated metal exterior panels. Applying at least 1.5 to 2.0 inches of closed-cell spray foam directly onto the metal panels isolates the metal, seals all air infiltration gaps, and completely eliminates the condensation point.</div>
+      </div>
+    </section>
+
+    <!-- Bottom AdSense Banner -->
+    <div style="text-align:center; margin: 32px 0;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3381238987477190"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <footer>
+      <p>© 2026 <a href="https://sebiglesias.com.ar/">sebiglesias.com.ar</a> · Spray Foam Insulation & Board Feet Calculator.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
